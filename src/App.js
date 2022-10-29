@@ -10,9 +10,9 @@ import Profile from "./pages/register/Profile.jsx";
 function App() {
   const [state, setState] = React.useState(1);
 
-  React.useEffect(async () => {
-    await fetch("http://127.0.0.1:8000/getUser/?user_login=Kolya_wolf").then(
-      (res) => console.log(res)
+  React.useEffect(() => {
+    fetch("http://127.0.0.1:8000/getUser/?user_login=Kolya_wolf").then((res) =>
+      console.log(res)
     );
   }, []);
   return (
