@@ -11,9 +11,9 @@ function App() {
   const [state, setState] = React.useState(1);
 
   React.useEffect(() => {
-    fetch("http://127.0.0.1:8000/getUser/?user_login=Kolya_wolf").then((res) =>
-      console.log(res)
-    );
+    fetch("http://127.0.0.1:8000/getUser/?user_login=Kolya_wolf")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }, []);
   return (
     <div className="App">
