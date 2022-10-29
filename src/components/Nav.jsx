@@ -4,7 +4,7 @@ export default function Nav(props) {
   return (
     <nav className={"site-nav"}>
       <ul className={"nav-list"}>
-        <li className={"nav-item"}>
+        <li onClick={() => props.setPage(1)} className={"nav-item"}>
           <a href={"#"} className={"nav-link profile-icon"}>
             Профиль
           </a>
@@ -19,7 +19,7 @@ export default function Nav(props) {
             Чатрулетка
           </a>
         </li>
-        <li className={"nav-item current"}>
+        <li onClick={() => props.setPage(4)} className={"nav-item current"}>
           <a href={"#"} className={"nav-link settings-icon"}>
             Настройки
           </a>

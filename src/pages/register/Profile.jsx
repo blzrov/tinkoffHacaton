@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "../../components/Nav";
 
-export default function Profile() {
+export default function Profile(props) {
   return (
     <div className={"wrapper"}>
       <h1 className={"header"}>Профиль</h1>
@@ -24,7 +24,7 @@ export default function Profile() {
         <textarea className={"input form-textarea"} rows={7}></textarea>
         <button className={"btn btn-interests"}>Мои интересы</button>
       </div>
-      <Nav />
+      <Nav setPage={props.setPage} />
     </div>
   );
 }

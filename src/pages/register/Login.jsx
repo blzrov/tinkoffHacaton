@@ -4,11 +4,9 @@ export default function Login(props) {
   const [pass, setPass] = React.useState("");
 
   function doLogin() {
-    //doLogin
-    console.log({ login, pass });
-    fetch("", { method: "post", body: { login, pass } })
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
+    // fetch("", { login, pass })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
   }
 
   return (

@@ -40,7 +40,7 @@ export default function Settings(props) {
         </li>
         <button className={"btn btn-exit"}>Выйти из аккаунта</button>
       </ul>
-      <Nav />
+      <Nav setPage={props.setPage}  />
     </div>
   );
 }
