@@ -1,0 +1,25 @@
+.form{
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &-header{
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &::after{
+      content: "";
+      display: block;
+      height: 1px;
+      width: 115%;
+      background-color: #2f62e5;
+      margin-top: 20px;
+    }
+  }
+}

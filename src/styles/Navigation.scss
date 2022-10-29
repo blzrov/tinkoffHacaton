@@ -1,0 +1,97 @@
+.site-nav{
+  height: 100%;
+  position: fixed;
+  left: 0;
+  background: #E5E4E2;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-list{
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+}
+
+.nav-item{
+  opacity: 0.6;
+  padding-top: 65px;
+  margin-top: 60px;
+  text-align: center;
+
+  &:first-child{
+    margin: 0;
+  }
+}
+
+.nav-link{
+  padding-top: 65px;
+  text-decoration: none;
+  color: black;
+}
+
+@media (max-width: 820px) {
+  .site-nav{
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    background-color: white;
+    margin-top: 63px;
+    display: flex;
+    flex-direction: column;
+
+    &::before{
+      content: "";
+      display: block;
+      width: 90%;
+      height: 1px;
+      background-color: black;
+      justify-self: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  .nav-list{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-item{
+    margin: 0;
+  }
+}
+
+.current{
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.profile-icon{
+  background: url("../img/profile.png") no-repeat 50% -10%;
+}
+
+.chats-icon{
+  background: url("../img/chats.png") no-repeat 50% -10%;
+}
+
+.chatroulette-icon{
+  background: url("../img/chatroulette.png") no-repeat 50% -10%;
+}
+
+.settings-icon{
+  background: url("../img/settings.png") no-repeat 50% -10%;
+}
+
+@media (max-width: 450px) {
+  .site-nav{
+    &::before{
+      width: 100%;
+    }
+  }
+
+  .nav-list{
+    width: 120%;
+  }
+}

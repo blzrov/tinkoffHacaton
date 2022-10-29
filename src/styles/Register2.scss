@@ -1,0 +1,16 @@
+.add-avatar{
+  width: 215px;
+  height: 215px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background: url("../img/avatar.png") no-repeat 60% 40%;
+  margin-bottom: 59px;
+  margin-top: 35px;
+}
+
+.form .form-textarea{
+  height: auto;
+  max-height: 180px;
+  box-sizing: border-box;
+  padding: 10px;
+}
