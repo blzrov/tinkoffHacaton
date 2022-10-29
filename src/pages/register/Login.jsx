@@ -1,11 +1,14 @@
 import React from "react";
-export default function Page1(props) {
+export default function Login(props) {
   const [login, setLogin] = React.useState("");
   const [pass, setPass] = React.useState("");
 
   function doLogin() {
     //doLogin
     console.log({ login, pass });
+    fetch("", { method: "post", body: { login, pass } })
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
   }
 
   return (
@@ -28,7 +31,7 @@ export default function Page1(props) {
       <button onClick={doLogin} className={"btn send-button"}>
         Войти
       </button>
-      <button onClick={props.next}  className={"btn send-button"}>
+      <button onClick={props.next} className={"btn send-button"}>
         Создать аккаунт
       </button>
     </div>
