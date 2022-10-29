@@ -3,9 +3,11 @@ import "./App.scss";
 import Settings from "./pages/register/Settings.jsx";
 import Profile from "./pages/register/Profile.jsx";
 import Regist from "./components/Regist";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Chat from "./components/Messenger/App"
 
 function App() {
-  const [state, setState] = React.useState(1);
 
   // React.useEffect(() => {
   //   fetch("http://127.0.0.1:8000/getUser/?user_login=Kolya_wolf")
@@ -14,12 +16,14 @@ function App() {
   // }, []);
   return (
     <div className="App">
-      {/* {state === 1 ? (
-        <Profile setPage={setState} />
-      ) : state === 4 ? (
-        <Settings setPage={setState} />
-      ) : null} */}
-      <Regist />
+      <BrowserRouter>
+        <Routes>
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="regist" element={<Regist />} />
+          <Route path="chat" element={<Chat />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
