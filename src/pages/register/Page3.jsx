@@ -1,13 +1,20 @@
 export default function Page3({ next, result }) {
+
+
     return (
         <div className={"wrapper"}>
             <h1 className={"header"}>Регистрация</h1>
             <div className={"form"}>
                 <div className={"add-avatar"}></div>
                 <label className={"form-label"}>Должность</label>
-                <select className={"input"}></select>
+                <select onChange={(e) => result.specialization = e.target.value}
+                        className={"input"}>
+                    <option value={"Программист"}>Программист</option>
+                    <option value={"Дизайнер"}>Дизайнер</option>
+                    <option value={"Аналитик"}>Аналитик</option>
+                </select>
                 <label className={"form-label"}>О себе</label>
-                <textarea className={"input form-textarea"} rows={7}></textarea>
+                <textarea onChange={(e) => result.aboutMe = e.target.value} className={"input form-textarea"} rows={7}></textarea>
             </div>
             <button onClick={next} className={"btn"}>Готово</button>
         </div>);
