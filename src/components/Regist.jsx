@@ -2,7 +2,7 @@ import React from "react";
 // import "./App.scss";
 import Login from "../pages/register/Login";
 import Page2 from "../pages/register/Page2";
-import Page4 from "../pages/register/Page3";
+import Page4 from "../pages/register/Page4";
 import Page3 from "../pages/register/Page3";
 
 export default function Regist() {
@@ -14,7 +14,7 @@ export default function Regist() {
     setPage(page + 1);
     console.log(page);
   }
-
+  console.log(page);
   return (
     <div>
       {page === 1 ? (
@@ -25,9 +25,7 @@ export default function Regist() {
         <Page3 next={changePagePlus} result={result} />
       ) : page === 4 ? (
         <Page4 next={changePagePlus} result={result} />
-      ) : (
-        "Готово"
-      )}
+      ) : null}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import {useRef} from "react";
 
-export default function Page6() {
+export default function Profile() {
     return (
         <div className={"wrapper"}>
             <h1 className={"header"}>Профиль</h1>

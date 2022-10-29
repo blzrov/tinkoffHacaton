@@ -1,4 +1,4 @@
-export default function Page2() {
+export default function Settings() {
     return (
         <div className={"wrapper"}>
             <h1 className={"header"}>Настройки</h1>

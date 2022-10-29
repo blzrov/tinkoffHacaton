@@ -1,4 +1,4 @@
-export default function Page4(props) {
+export default function Page4({result}) {
     return (
         <div className={"wrapper"}>
             <h1 className={"header"}>Анкета</h1>

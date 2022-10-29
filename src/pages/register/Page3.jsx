@@ -16,6 +16,6 @@ export default function Page3({ next, result }) {
                 <label className={"form-label"}>О себе</label>
                 <textarea onChange={(e) => result.aboutMe = e.target.value} className={"input form-textarea"} rows={7}></textarea>
             </div>
-            <button onClick={next} className={"btn"}>Готово</button>
+            <button onClick={next} className={"btn"}>Далее</button>
         </div>);
 }
