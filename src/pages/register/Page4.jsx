@@ -1,7 +1,7 @@
 export default function Page4({ result }) {
   function postResult() {
     //doPost
-    console.log(result);
+    console.log(result.current);
   }
   return (
     <div className={"wrapper"}>

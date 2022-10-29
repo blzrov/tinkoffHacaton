@@ -12,9 +12,8 @@ export default function Regist() {
 
   function changePagePlus() {
     setPage(page + 1);
-    console.log(page);
   }
-  console.log(page);
+
   return (
     <div>
       {page === 1 ? (
