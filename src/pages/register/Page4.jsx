@@ -1,14 +1,13 @@
-export default function Page4() {
+export default function Page4(props) {
     return (
         <div className={"wrapper"}>
-            <h1 className={"header"}>Регистрация</h1>
+            <h1 className={"header"}>Анкета</h1>
             <div className={"form"}>
-                <div className={"add-avatar"}></div>
-                <label className={"form-label"}>Должность</label>
+                <label className={"form-label"}>Мои хобби</label>
                 <select className={"input"}></select>
-                <label className={"form-label"}>О себе</label>
-                <textarea className={"input form-textarea"} rows={7}></textarea>
+                <label className={"form-label"}>Ищу коллег только из своего города</label>
+                <input type={"button"} className={"input"}></input>
             </div>
-            <button className={"btn"}>Готово</button>
+            <button className={"btn"} onClick={props.next}>Готово</button>
         </div>);
 }

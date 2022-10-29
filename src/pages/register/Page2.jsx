@@ -1,53 +1,40 @@
-export default function Page2() {
-    return (
-        <div className={"wrapper"}>
-            <h1 className={"header"}>Настройки</h1>
-            <ul className="settings">
-                <li className="notifications">
-                    <h2 className={"notifications-header"}>Уведомления</h2>
-                    <ul className={"notifications-params"}>
-                        <li className={"parameter"}>Все</li>
-                        <li className={"parameter"}>Личные</li>
-                        <li className={"parameter"}>Нет</li>
-                    </ul>
-                </li>
-                <li className="language">
-                    <label className={"form-label"}>Язык</label>
-                    <select className={"input"}>
-                        <option>Русский</option>
-                        <option>Белорусский</option>
-                        <option>Армянский</option>
-                        <option>Английский</option>
-                    </select>
-                </li>
-                <li className="theme">
-                    <label className="form-label">Тема</label>
-                    <select className={"input"}>
-                        <option>Светлая</option>
-                        <option>Тёмная</option>
-                    </select>
-                </li>
-                <li className="blacklist">
-                    <label className="form-label">Чёрный список</label>
-                    <input type={"button"} className={"input blacklist-btn"} value={"+"}></input>
-                </li>
-                <button className={"btn btn-exit"}>Выйти из аккаунта</button>
-            </ul>
-            <nav className={"site-nav"}>
-                <ul className={"nav-list"}>
-                    <li className={"nav-item"}>
-                        <a href={"#"} className={"nav-link profile-icon"}>Профиль</a>
-                    </li>
-                    <li className={"nav-item"}>
-                        <a href={"#"} className={"nav-link chats-icon"}>Беседы</a>
-                    </li>
-                    <li className={"nav-item"}>
-                        <a href={"#"} className={"nav-link chatroulette-icon"}>Чатрулетка</a>
-                    </li>
-                    <li className={"nav-item current"}>
-                        <a href={"#"} className={"nav-link settings-icon"}>Настройки</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>);
+import React from "react";
+
+export default function Page2({ next, result }) {
+
+  return (
+    <div className={"wrapper"}>
+      <h1 className={"header"}>Регистрация</h1>
+      <section defaultValue={1} className={"form"}>
+        <label className={"form-label"}>Имя</label>
+        <input
+          onChange={(e) => (result.name = e.target.value)}
+          type={"text"}
+          className={"input"}
+        ></input>
+        <label className={"form-label"}>Город</label>
+        <input
+          onChange={(e) => (result.city = e.target.value)}
+          type={"text"}
+          className={"input"}
+        ></input>
+        <label className={"form-label"}>Пол</label>
+        <input
+          onChange={(e) => (result.sex = e.target.value)}
+          type={"button"}
+          className={"input"}
+        ></input>
+        <label className={"form-label"}>Возраст</label>
+        <input
+          onChange={(e) => (result.age = e.target.value)}
+          type={"number"}
+          className={"input"}
+          min={0}
+        ></input>
+      </section>
+      <button onClick={next} className={"btn continue-btn"}>
+        Далее
+      </button>
+    </div>
+  );
 }
