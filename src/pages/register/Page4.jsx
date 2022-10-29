@@ -2,6 +2,9 @@ export default function Page4({ result }) {
   function postResult() {
     //doPost
     console.log(result.current);
+    fetch("", { method: "post", body: result.current })
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
   }
   return (
     <div className={"wrapper"}>
