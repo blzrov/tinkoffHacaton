@@ -10,12 +10,11 @@ export default function Messages({ messages = [], sendMessage }) {
   const context = useContext(settingsContext);
 
   const getMessages = () => {
-      fetch("http://localhost:8000/?chat_id=1")
-          .then((v) => JSON.parse(v))
+      fetch("127.0.0.1/getMessages?chat_id=1")
+          .then((v) => v.json())
           .then((e) => console.log(e))
           .catch((err) => console.log(err))
   }
-
   getMessages()
 
   useEffect(() => {
