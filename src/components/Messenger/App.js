@@ -59,14 +59,10 @@ export default function App() {
             <Chats messages={data} setSettings={setSettings} />
           </div>
           <div className="right">
-            {settings.user && settings.room ? (
-              <Messages
+          <Messages
                 messages={data[settings.room]}
                 sendMessage={sendMessage}
               />
-            ) : (
-              <h2>Введите имя и комнату</h2>
-            )}
           </div>
         </div>
       </settingsContext.Provider>
