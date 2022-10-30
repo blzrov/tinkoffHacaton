@@ -42,9 +42,10 @@ export default function App() {
   }, [getData]);
 
   return (
-    <div>
+    <div className="container">
       <settingsContext.Provider value={settings}>
         <Nav />
+        <div className="hidden">fix</div>
         <div className="OldChat">
           <div className="left">
             <Chats messages={data} setSettings={setSettings} />

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./App.scss";
 import Messages from "./components/Messages";
 import Nav from "../Nav";
+import Left from "./components/Left";
 
 export const settingsContext = React.createContext({});
 
@@ -43,8 +44,10 @@ export default function App() {
     <div>
       <settingsContext.Provider value={settings}>
         <Nav />
+        <div className="hidden">fix</div>
         <div className="OldChat">
           <div className="left">
+            <Left />
           </div>
           <div className="right">
             {settings.user && settings.room ? (
