@@ -5,6 +5,7 @@ import Profile from "./pages/register/Profile.jsx";
 import Regist from "./components/Regist";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
+import Chat2 from "./components/Messenger2/App"
 
 import Chat from "./components/Messenger/App";
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="settings" element={<Settings />} />
           <Route path="regist" element={<Regist />} />
           <Route path="chat" element={<Chat />} />
+          <Route path="chat2" element={<Chat2 />} />
           <Route path="/" element={<Regist />}/>
         </Routes>
       </BrowserRouter>

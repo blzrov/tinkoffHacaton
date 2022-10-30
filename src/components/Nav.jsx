@@ -16,7 +16,7 @@ export default function Nav(props) {
           </Link>
         </li>
         <li className={"nav-item"}>
-          <Link to="/settings" className={"nav-link chatroulette-icon"}>
+          <Link to="/chat2" className={"nav-link chatroulette-icon"}>
             Чатрулетка
           </Link>
         </li>
