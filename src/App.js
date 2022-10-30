@@ -10,8 +10,9 @@ import Chat from "./components/Messenger/App";
 function App() {
   let [userRes, setUserRes] = React.useState();
 
-  const [userLogin, setUserLogin] = React.useState("");
+  const [userLogin, setUserLogin] = React.useState("");console.log(userRes);
   return (
+    
     <div className="App">
       <BrowserRouter>
         <Routes>
@@ -19,7 +20,7 @@ function App() {
           <Route path="settings" element={<Settings />} />
           <Route path="regist" element={<Regist setUser={setUserLogin} s1etUserRes={setUserRes} />} />
           <Route path="chat" element={<Chat user={userLogin} />} />
-          <Route path="chat2" element={<Chat2 user={userLogin} userRes={userRes} />} />
+          <Route path="chat2" element={<Chat2 user={userLogin} userRes={userRes} name={userLogin} />} />
           <Route path="/" element={<Regist setUser={setUserLogin} s1etUserRes={setUserRes} />} />
         </Routes>
       </BrowserRouter>

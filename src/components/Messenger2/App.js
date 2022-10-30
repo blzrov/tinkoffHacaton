@@ -53,7 +53,7 @@ export default function App(props) {
       <div className="hidden">fix</div>
       <div className="OldChat">
         <div className="left">
-          <Left />
+          <Left userRes={props.userRes} name={props.name}/>
         </div>
         <div className="right">
           <Messages messages={data[settings.room]} user={props.user} sendMessage={sendMessage} />
