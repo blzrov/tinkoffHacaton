@@ -13,16 +13,37 @@
     align-self: flex-start;
     margin-bottom: 10px;
   }
+
+  &-sex,&-own-city{
+    align-self: flex-start;
+    height: 55px;
+    width: 120px;
+    border-radius: 10px;
+    margin-bottom: 55px;
+    padding: 0;
+
+    label{
+      display: inline-block;
+      width: 60px;
+      border-radius: 10px 0 0 10px;
+      height: 55px;
+      font-size: 32px;
+      line-height: 55px;
+      text-align: center;
+
+      &:last-of-type{
+        border-radius: 0 10px 10px 0;
+      }
+    }
+  }
 }
 
-.input[type="button"]{
-  width: 142px;
-  height: 56px;
-  align-self: flex-start;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.input[type="radio"]{
+  display: none;
+}
+
+input[type=radio]:checked + label {
+  background: #e8df0e;
 }
 
 .input[type="number"]{
