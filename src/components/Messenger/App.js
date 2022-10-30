@@ -18,18 +18,30 @@ export default function App() {
   }, []);
 
   const sendMessage = (value, quote, media) => {
-    if (!dataRef.current[settings.room]) {
-      dataRef.current[settings.room] = [];
-    }
-    dataRef.current[settings.room].push({
-      user: settings.user,
-      value: value,
-      quote: quote || null,
-      media: media || null,
-      date: Date.now(),
-    });
-    localStorage.setItem("data", JSON.stringify(dataRef.current));
-    getData();
+    // if (!dataRef.current[settings.room]) {
+    //   dataRef.current[settings.room] = [];
+    // }
+    // dataRef.current[settings.room].push({
+    //   user: settings.user,
+    //   value: value,
+    //   quote: quote || null,
+    //   media: media || null,
+    //   date: Date.now(),
+    // });
+    // localStorage.setItem("data", JSON.stringify(dataRef.current));
+    // getData();
+    fetch("", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user_login: "denis",
+        value: value,
+        chat_id: "666",
+      }),
+    }).then((e) => console.log(e));
   };
 
   useEffect(() => {
@@ -51,14 +63,10 @@ export default function App() {
             <Chats messages={data} setSettings={setSettings} />
           </div>
           <div className="right">
-            {settings.user && settings.room ? (
-                <Messages
-                    messages={data[settings.room]}
-                    sendMessage={sendMessage}
-                />
-            ) : (
-                <h2>Введите имя и комнату</h2>
-            )}
+            <Messages
+              messages={data[settings.room]}
+              sendMessage={sendMessage}
+            />
           </div>
         </div>
       </settingsContext.Provider>
