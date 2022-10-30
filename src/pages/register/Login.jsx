@@ -1,12 +1,19 @@
 import React from "react";
 export default function Login(props) {
-  const [login, setLogin] = React.useState("");
-  const [pass, setPass] = React.useState("");
+  const [user_login, setLogin] = React.useState("");
+  const [user_password, setPass] = React.useState("");
 
   function doLogin() {
-    // fetch("", { login, pass })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
+      fetch("http://127.0.0.1:8000/checkUser/", {
+          headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({login: user_login, pass: user_password}),
+      })
+          .then((res) => console.log(JSON.parse(res)))
+          .catch((e) => console.log(e));
   }
 
   return (
