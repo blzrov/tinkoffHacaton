@@ -1,13 +1,14 @@
 export default function Page4({ result }) {
   function postResult() {
-    fetch("http://127.0.0.1:8000/getUser/?user_login=Kolya_wolf", {
-      method: "post",
-      body: result.current,
+      fetch("http://127.0.0.1:8000/postUser/", {
+      method: "POST",
+      headers: {"Content-Type": "application/json", "Accept": "application/json"},
+      body: JSON.stringify(result.current),
     })
       .then((res) => console.log(res))
       .catch((e) => console.log(e));
   }
-  result.current.hobbies = [];
+  result.current.user_hobbies = [];
   return (
     <div className={"wrapper"}>
       <h1 className={"header"}>Анкета</h1>
@@ -20,7 +21,7 @@ export default function Page4({ result }) {
                 <button
                   onClick={(e) => {
                     e.target.disabled = true;
-                    result.current.hobbies.push(e.target.textContent);
+                    result.current.user_hobbies.push(e.target.textContent);
                   }}
                   className={"hobby"}
                   key={index}

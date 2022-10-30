@@ -26,10 +26,10 @@ export default function Login(props) {
           placeholder={"Пароль"}
         ></input>
       </section>
-      <button onClick={doLogin} className={"btn send-button"}>
+      <button onClick={doLogin} className={"btn login-button"}>
         Войти
       </button>
-      <button onClick={props.next} className={"btn send-button"}>
+      <button onClick={props.next} className={"btn login-button"}>
         Создать аккаунт
       </button>
     </div>
