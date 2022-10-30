@@ -18,8 +18,10 @@
 .interests{
   width: 100%;
   display: flex;
+  margin-top: 15px;
   margin-bottom: 55px;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 10px;
 }
 
