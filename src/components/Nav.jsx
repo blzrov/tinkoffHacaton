@@ -1,28 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Nav(props) {
   return (
     <nav className={"site-nav"}>
       <ul className={"nav-list"}>
-        <li onClick={() => props.setPage(1)} className={"nav-item"}>
-          <a href={"#"} className={"nav-link profile-icon"}>
+        <li>
+          <Link to="/profile" className={"nav-link profile-icon"}>
             Профиль
-          </a>
+          </Link>
         </li>
         <li className={"nav-item"}>
-          <a href={"#"} className={"nav-link chats-icon"}>
+          <Link to="/chat" className={"nav-link chats-icon"}>
             Беседы
-          </a>
+          </Link>
         </li>
         <li className={"nav-item"}>
-          <a href={"#"} className={"nav-link chatroulette-icon"}>
+          <Link to="/settings" className={"nav-link chatroulette-icon"}>
             Чатрулетка
-          </a>
+          </Link>
         </li>
-        <li onClick={() => props.setPage(4)} className={"nav-item current"}>
-          <a href={"#"} className={"nav-link settings-icon"}>
+        <li className="nav-item">
+          <Link to="/settings" className={"nav-link settings-icon"}>
             Настройки
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

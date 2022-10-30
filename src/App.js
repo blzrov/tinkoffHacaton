@@ -4,11 +4,11 @@ import Settings from "./pages/register/Settings.jsx";
 import Profile from "./pages/register/Profile.jsx";
 import Regist from "./components/Regist";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Nav from "./components/Nav";
 
-import Chat from "./components/Messenger/App"
+import Chat from "./components/Messenger/App";
 
 function App() {
-
   // React.useEffect(() => {
   //   fetch("http://127.0.0.1:8000/getUser/?user_login=Kolya_wolf")
   //     .then((res) => res.json())
@@ -22,6 +22,7 @@ function App() {
           <Route path="settings" element={<Settings />} />
           <Route path="regist" element={<Regist />} />
           <Route path="chat" element={<Chat />} />
+          <Route path="/" element={<Regist />}/>
         </Routes>
       </BrowserRouter>
     </div>
