@@ -5,11 +5,7 @@ export default function Page4({ result, setUser }) {
   const [isLogin, setIsLogin] = React.useState(false);
 
   function postResult() {
-    fetch("localhost:8000/postUser", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+    fetch("127.0.0.1:8000/postUser/", {
       method: "POST",
       body: JSON.stringify(result.current),
     })
@@ -19,7 +15,7 @@ export default function Page4({ result, setUser }) {
       .finally(() => {
         if (true) {
           setIsLogin(true);
-          setUser(result.user_login);
+          setUser(result.current.user_login);
         }
       });
   }
