@@ -42,7 +42,24 @@ export default function Page4({ result }) {
         <label className={"form-label"}>
           Ищу коллег только из своего города
         </label>
-        <input type={"button"} className={"input"}></input>
+        <fieldset className="form-own-city">
+          <input
+              onChange={(e) => (result.current.user_is_my_city = e.target.value)}
+              type={"radio"}
+              className={"input"}
+              value={"true"}
+              id="radio-y"
+          ></input>
+          <label htmlFor="radio-y">+</label>
+          <input
+              onChange={(e) => (result.current.user_is_my_city = e.target.value)}
+              type={"radio"}
+              className={"input"}
+              value={"false"}
+              id="radio-n"
+          ></input>
+          <label htmlFor="radio-n">-</label>
+        </fieldset>
       </div>
       <button className={"btn"} onClick={postResult}>
         Готово
