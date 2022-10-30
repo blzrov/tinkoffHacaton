@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 
 export default function Page4({ result }) {
+  const [isLogin, setIsLogin] = React.useState(false);
+
   function postResult() {
-    fetch("", {
+    fetch("localhost:8000/postUser", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -11,8 +13,14 @@ export default function Page4({ result }) {
       method: "POST",
       body: JSON.stringify(result.current),
     })
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
+      .then((res) => JSON.parse(res))
+      .then((e) => console.log(e))
+      .catch((e) => console.log(e))
+      .finally(() => {
+        if (true) {
+          setIsLogin(true);
+        }
+      });
   }
   result.current.user_hobbies = [];
 
@@ -44,26 +52,33 @@ export default function Page4({ result }) {
         </label>
         <fieldset className="form-own-city">
           <input
-              onChange={(e) => (result.current.user_is_my_city = e.target.value)}
-              type={"radio"}
-              className={"input"}
-              value={"true"}
-              id="radio-y"
+            onChange={(e) => (result.current.user_is_my_city = e.target.value)}
+            type={"radio"}
+            className={"input"}
+            value={"true"}
+            id="radio-y"
           ></input>
           <label htmlFor="radio-y">+</label>
           <input
-              onChange={(e) => (result.current.user_is_my_city = e.target.value)}
-              type={"radio"}
-              className={"input"}
-              value={"false"}
-              id="radio-n"
+            onChange={(e) => (result.current.user_is_my_city = e.target.value)}
+            type={"radio"}
+            className={"input"}
+            value={"false"}
+            id="radio-n"
           ></input>
           <label htmlFor="radio-n">-</label>
         </fieldset>
       </div>
-      <button className={"btn"} onClick={postResult}>
-        Готово
-      </button>
+
+      {!isLogin ? (
+        <button className={"btn"} onClick={postResult}>
+          Готово
+        </button>
+      ) : (
+        <Link to="/chat">
+          <button className={"btn login-button"}>Перейти в чат</button>
+        </Link>
+      )}
       {/* <Link to="/chat">Перейти в чат</Link> */}
     </div>
   );

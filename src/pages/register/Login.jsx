@@ -15,7 +15,8 @@ export default function Login(props) {
       method: "POST",
       body: JSON.stringify({ login: user_login, pass: user_password }),
     })
-      .then((res) => console.log(JSON.parse(res)))
+      .then((res) => JSON.parse(res))
+      .then((e) => console.log(e))
       .catch((e) => console.log(e))
       .finally(() => {
         if (true) {
