@@ -1,19 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 export default function Login(props) {
   const [user_login, setLogin] = React.useState("");
   const [user_password, setPass] = React.useState("");
+  const [isLogin, setIsLogin] = React.useState(false);
 
   function doLogin() {
-      fetch("http://127.0.0.1:8000/checkUser/", {
-          headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify({login: user_login, pass: user_password}),
-      })
-          .then((res) => console.log(JSON.parse(res)))
-          .catch((e) => console.log(e));
+    fetch("http://127.0.0.1:8000/checkUser/", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({ login: user_login, pass: user_password }),
+    })
+      .then((res) => console.log(JSON.parse(res)))
+      .catch((e) => console.log(e))
+      .finally(() => {
+        if (true) {
+          setIsLogin(true);
+        }
+      });
   }
 
   return (
@@ -33,9 +41,17 @@ export default function Login(props) {
           placeholder={"Пароль"}
         ></input>
       </section>
-      <button onClick={doLogin} className={"btn login-button"}>
-        Войти
-      </button>
+
+      {!isLogin ? (
+        <button onClick={doLogin} className={"btn login-button"}>
+          Войти
+        </button>
+      ) : (
+        <Link to="/chat">
+          <button className={"btn login-button"}>Перейти в чат</button>
+        </Link>
+      )}
+
       <button onClick={props.next} className={"btn login-button"}>
         Создать аккаунт
       </button>

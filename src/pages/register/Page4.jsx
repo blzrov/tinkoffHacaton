@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 export default function Page4({ result }) {
   function postResult() {
     fetch("", {
@@ -12,6 +15,7 @@ export default function Page4({ result }) {
       .catch((e) => console.log(e));
   }
   result.current.user_hobbies = [];
+
   return (
     <div className={"wrapper"}>
       <h1 className={"header"}>Анкета</h1>
@@ -43,6 +47,7 @@ export default function Page4({ result }) {
       <button className={"btn"} onClick={postResult}>
         Готово
       </button>
+      {/* <Link to="/chat">Перейти в чат</Link> */}
     </div>
   );
 }
