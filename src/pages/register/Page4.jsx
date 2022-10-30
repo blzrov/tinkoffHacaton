@@ -11,7 +11,7 @@ export default function Page4({ result }) {
       .then((res) => console.log(res))
       .catch((e) => console.log(e));
   }
-  result.current.hobbies = [];
+  result.current.user_hobbies = [];
   return (
     <div className={"wrapper"}>
       <h1 className={"header"}>Анкета</h1>
@@ -24,7 +24,7 @@ export default function Page4({ result }) {
                 <button
                   onClick={(e) => {
                     e.target.disabled = true;
-                    result.current.hobbies.push(e.target.textContent);
+                    result.current.user_hobbies.push(e.target.textContent);
                   }}
                   className={"hobby"}
                   key={index}
