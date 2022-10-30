@@ -57,7 +57,7 @@ export default function App() {
                     sendMessage={sendMessage}
                 />
             ) : (
-                <h2>Название беседы</h2>
+                <h2>Введите имя и комнату</h2>
             )}
           </div>
         </div>
