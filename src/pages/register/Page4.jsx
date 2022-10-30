@@ -1,8 +1,12 @@
 export default function Page4({ result }) {
   function postResult() {
-    fetch("http://127.0.0.1:8000/getUser/?user_login=Kolya_wolf", {
-      method: "post",
-      body: result.current,
+    fetch("", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(result.current),
     })
       .then((res) => console.log(res))
       .catch((e) => console.log(e));
