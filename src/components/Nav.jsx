@@ -5,7 +5,7 @@ export default function Nav(props) {
   return (
     <nav className={"site-nav"}>
       <ul className={"nav-list"}>
-        <li>
+        <li className={"nav-item"}>
           <Link to="/profile" className={"nav-link profile-icon"}>
             Профиль
           </Link>
