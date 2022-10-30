@@ -3,6 +3,7 @@ import "./App.scss";
 import Settings from "./components/Settings";
 import Chats from "./components/Chats";
 import Messages from "./components/Messages";
+import Nav from "../Nav";
 
 export const settingsContext = React.createContext({});
 
@@ -41,21 +42,23 @@ export default function App() {
   }, [getData]);
 
   return (
-    <div className="OldChat">
+    <div>
       <settingsContext.Provider value={settings}>
-        <div className="left">
-          <Settings setSettings={setSettings} />
-          <Chats messages={data} setSettings={setSettings} />
-        </div>
-        <div className="right">
-          {settings.user && settings.room ? (
-            <Messages
-              messages={data[settings.room]}
-              sendMessage={sendMessage}
-            />
-          ) : (
-            <h2>Введите имя и комнату</h2>
-          )}
+        <Nav />
+        <div className="OldChat">
+          <div className="left">
+            <Chats messages={data} setSettings={setSettings} />
+          </div>
+          <div className="right">
+            {settings.user && settings.room ? (
+                <Messages
+                    messages={data[settings.room]}
+                    sendMessage={sendMessage}
+                />
+            ) : (
+                <h2>Введите имя и комнату</h2>
+            )}
+          </div>
         </div>
       </settingsContext.Provider>
     </div>

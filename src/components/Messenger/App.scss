@@ -26,25 +26,68 @@
     }
   
     .chats {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &-header{
+        font-weight: 800;
+        font-size: 40px;
+        line-height: 56px;
+        text-align: center;
+      }
+      &-find{
+        margin-top: 10px;
+        box-sizing: border-box;
+        width: 80%;
+        height: 56px;
+        border-radius: 10px;
+        border: 1px solid #D7D7D7;
+        padding-left: 50px;
+        position: relative;
+
+        &::before{
+          content: "";
+          display: block;
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          left: 10px;
+          background-image: url("../../img/union.svg");
+        }
+      }
       overflow: auto;
-      ul {
-        margin: 0;
+      .chats-list {
+        width: 80%;
+        margin: 20px auto 0;
         padding: 0;
         display: flex;
         flex-direction: column;
         list-style: none;
-        li {
-          padding: 15px;
-          background-color: #235c7941;
-          border-bottom: 1px solid gray;
+        .chat {
+          box-sizing: border-box;
+          margin-bottom: 20px;
+          width: 100%;
+          height: 70px;
+          padding: 5px;
+          border: 1px solid gray;
+          border-radius: 10px;
           &:hover {
             cursor: pointer;
-          }
-          &.currentChat {
-            background-color: #3ca0d0;
+            opacity: 0.7;
+            background-color: lightgray;
           }
           .user {
             color: blue;
+          }
+
+          .last-sender{
+            margin: 5px 0 5px 15px;
+            font-weight: 700;
+            font-size: 18px;
+          }
+
+          .last-message{
+            margin: 0 0 0 15px;
           }
         }
       }

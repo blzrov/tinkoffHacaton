@@ -20,43 +20,22 @@ export default function Chats({ messages, setSettings }) {
 
   return (
     <div className="chats">
-      <Switch
-        checked={checked}
-        onChange={handleChange}
-        inputProps={{ "aria-label": "controlled" }}
-      />
-      <span>Чаты только с вашим участием to do</span>
-      {rooms.length ? null : <h3>Тут будут чаты</h3>}
-      <ul>
-        {rooms.map((room) => {
-          const lastMessage = messages[room][messages[room].length - 1];
-          return (
-            <li
-              key={room}
-              onClick={() => {
-                if (context.user)
-                  setSettings({ user: context.user, room: room });
-              }}
-              className={context.room === room ? "currentChat" : null}
-            >
-              <b>{room.length > 51 ? room.slice(0, 50) : room}</b>
-              <br />
-              <span className={context.user === lastMessage.user ? "" : "user"}>
-                {context.user === lastMessage.user
-                  ? "Вы: "
-                  : lastMessage.user + ": "}
-              </span>
-              <span>
-                {lastMessage.media
-                  ? "Файл"
-                  : lastMessage.value.length > 51
-                  ? lastMessage.value.slice(0, 50)
-                  : lastMessage.value}
-              </span>
+        <h1 className="chats-header">Беседы</h1>
+        <input placeholder="Поиск" className="chats-find"/>
+        <ul className="chats-list">
+            <li className="chat">
+                <p className="last-sender"></p>
+                <p className="last-message"></p>
             </li>
-          );
-        })}
-      </ul>
+            <li className="chat">
+                <p className="last-sender"></p>
+                <p className="last-message"></p>
+            </li>
+            <li className="chat">
+                <p className="last-sender"></p>
+                <p className="last-message"></p>
+            </li>
+        </ul>
     </div>
   );
 }
