@@ -20,6 +20,7 @@ export default function Login(props) {
       .catch((e) => console.log(e))
       .finally(() => {
         if (true) {
+          props.setUser(user_login);
           setIsLogin(true);
         }
       });

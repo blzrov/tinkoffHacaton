@@ -1,7 +1,7 @@
 import React from "react";
 import { json, Link } from "react-router-dom";
 
-export default function Page4({ result }) {
+export default function Page4({ result, setUser }) {
   const [isLogin, setIsLogin] = React.useState(false);
 
   function postResult() {
@@ -19,6 +19,7 @@ export default function Page4({ result }) {
       .finally(() => {
         if (true) {
           setIsLogin(true);
+          setUser(result.user_login);
         }
       });
   }
@@ -30,24 +31,39 @@ export default function Page4({ result }) {
       <div className={"form"}>
         <label className={"form-label"}>Мои хобби</label>
         <ul className="interests">
-          {["Спорт", "Киберспорт", "Настольные игры", "Музыка", "Книги", "Путешествия", "Искусство",
-            "IT-технологии", "Фото", "Животные", "Кулинария", "Растения", "Здоровый образ жизни", "Тусовки",
-            "Фильмы", "Коллекционирование", "Хэндмейд", "Пение"].map(
-            (element, index) => {
-              return (
-                <button
-                  onClick={(e) => {
-                    e.target.disabled = true;
-                    result.current.user_hobbies.push(e.target.textContent);
-                  }}
-                  className={"hobby"}
-                  key={index}
-                >
-                  {element}
-                </button>
-              );
-            }
-          )}
+          {[
+            "Спорт",
+            "Киберспорт",
+            "Настольные игры",
+            "Музыка",
+            "Книги",
+            "Путешествия",
+            "Искусство",
+            "IT-технологии",
+            "Фото",
+            "Животные",
+            "Кулинария",
+            "Растения",
+            "Здоровый образ жизни",
+            "Тусовки",
+            "Фильмы",
+            "Коллекционирование",
+            "Хэндмейд",
+            "Пение",
+          ].map((element, index) => {
+            return (
+              <button
+                onClick={(e) => {
+                  e.target.disabled = true;
+                  result.current.user_hobbies.push(e.target.textContent);
+                }}
+                className={"hobby"}
+                key={index}
+              >
+                {element}
+              </button>
+            );
+          })}
         </ul>
         <label className={"form-label"}>
           Ищу коллег только из своего города

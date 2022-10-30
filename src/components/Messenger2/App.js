@@ -6,7 +6,7 @@ import Left from "./components/Left";
 
 export const settingsContext = React.createContext({});
 
-export default function App() {
+export default function App(props) {
   const [settings, setSettings] = useState({});
   const [data, setData] = useState([]);
   const dataRef = useRef();
@@ -36,21 +36,14 @@ export default function App() {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        user_login: "denis",
+        user_login: props.user,
         value: value,
         chat_id: "666",
       }),
     }).then((e) => console.log(e));
   };
 
-  useEffect(() => {
-    if (!localStorage.getItem("data")) {
-      localStorage.setItem("data", JSON.stringify({}));
-    }
-    getData();
-    window.addEventListener("storage", getData);
-    return () => window.removeEventListener("storage", getData);
-  }, [getData]);
+
 
   return (
     <div>

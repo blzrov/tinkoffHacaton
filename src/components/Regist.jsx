@@ -6,7 +6,7 @@ import Page4 from "../pages/register/Page4";
 import Page3 from "../pages/register/Page3";
 import Page1 from "../pages/register/Page1";
 
-export default function Regist() {
+export default function Regist(props) {
   const result = React.useRef({});
 
   const [page, setPage] = React.useState(1);
@@ -18,7 +18,7 @@ export default function Regist() {
   return (
     <div>
       {page === 1 ? (
-        <Login next={changePagePlus} />
+        <Login next={changePagePlus} setUser={props.setUser} />
       ) : page === 2 ? (
           <Page1 next={changePagePlus} result={result} />
       ) : page === 3 ? (
@@ -26,7 +26,7 @@ export default function Regist() {
       ) : page === 4 ? (
         <Page3 next={changePagePlus} result={result} />
       ) : page === 5 ? (
-        <Page4 next={changePagePlus} result={result} />
+        <Page4 next={changePagePlus} result={result} setUser={props.setUser} />
       ) : null}
     </div>
   );

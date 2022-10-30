@@ -7,7 +7,7 @@ import Nav from "../Nav";
 
 export const settingsContext = React.createContext({});
 
-export default function App() {
+export default function App(props) {
   const [settings, setSettings] = useState({});
   const [data, setData] = useState([]);
   const dataRef = useRef();
@@ -30,14 +30,14 @@ export default function App() {
     // });
     // localStorage.setItem("data", JSON.stringify(dataRef.current));
     // getData();
-    fetch("", {
+    fetch("http://127.0.0.1:8000/postMessages/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
       body: JSON.stringify({
-        user_login: "denis",
+        user_login: props.user,
         value: value,
         chat_id: "666",
       }),
