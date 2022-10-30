@@ -7,7 +7,11 @@ import Left from "./components/Left";
 export const settingsContext = React.createContext({});
 
 export default function App(props) {
-  const [settings, setSettings] = useState({});
+  const [settings, setSettings] = useState({
+    user: props.user,
+    room:
+      JSON.parse(localStorage.getItem("hobbi"))[props.userRes] || props.userRes,
+  });
   const [data, setData] = useState([]);
   const dataRef = useRef();
 
@@ -17,51 +21,44 @@ export default function App(props) {
   }, []);
 
   const sendMessage = (value, quote, media) => {
-    // if (!dataRef.current[settings.room]) {
-    //   dataRef.current[settings.room] = [];
-    // }
-    // dataRef.current[settings.room].push({
-    //   user: settings.user,
-    //   value: value,
-    //   quote: quote || null,
-    //   media: media || null,
-    //   date: Date.now(),
-    // });
-    // localStorage.setItem("data", JSON.stringify(dataRef.current));
-    // getData();
-    fetch("", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        user_login: props.user,
-        value: value,
-        chat_id: "666",
-      }),
-    }).then((e) => console.log(e));
+    if (!dataRef.current[settings.room]) {
+      dataRef.current[settings.room] = [];
+    }
+    dataRef.current[settings.room].push({
+      user: props.user,
+      value: value,
+      quote: quote || null,
+      media: media || null,
+      date: Date.now(),
+    });
+    localStorage.setItem("data", JSON.stringify(dataRef.current));
+    getData();
   };
 
-
+  useEffect(() => {
+    if (!localStorage.getItem("data")) {
+      localStorage.setItem("data", JSON.stringify({}));
+    }
+    if (!localStorage.getItem("hobbi")) {
+      localStorage.setItem("hobbi", JSON.stringify({}));
+    }
+    getData();
+    window.addEventListener("storage", getData);
+    return () => window.removeEventListener("storage", getData);
+  }, [getData]);
 
   return (
     <div>
-      <settingsContext.Provider value={settings}>
-        <Nav />
-        <div className="hidden">fix</div>
-        <div className="OldChat">
-          <div className="left">
-            <Left />
-          </div>
-          <div className="right">
-            <Messages
-              messages={data[settings.room]}
-              sendMessage={sendMessage}
-            />
-          </div>
+      <Nav />
+      <div className="hidden">fix</div>
+      <div className="OldChat">
+        <div className="left">
+          <Left />
         </div>
-      </settingsContext.Provider>
+        <div className="right">
+          <Messages messages={data[settings.room]} user={props.user} sendMessage={sendMessage} />
+        </div>
+      </div>
     </div>
   );
 }

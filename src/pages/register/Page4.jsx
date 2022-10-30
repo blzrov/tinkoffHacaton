@@ -1,10 +1,17 @@
 import React from "react";
 import { json, Link } from "react-router-dom";
 
-export default function Page4({ result, setUser }) {
+export default function Page4({ result, setUser, setUserRes }) {
+  console.log(setUserRes);
   const [isLogin, setIsLogin] = React.useState(false);
 
   function postResult() {
+    if (!JSON.parse(localStorage.getItem("hobbi"))) {
+      let o = {}
+      o[result.current.user_hobbies] = Date.now();
+      localStorage.setItem("hobbi", JSON.stringify(o));
+    }
+    setUserRes(result.current.user_hobbies);
     fetch("127.0.0.1:8000/postUser/", {
       method: "POST",
       body: JSON.stringify(result.current),

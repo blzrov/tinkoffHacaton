@@ -10,12 +10,14 @@ export default function Messages({ messages = [], sendMessage }) {
   const context = useContext(settingsContext);
 
   const getMessages = () => {
-      fetch("127.0.0.1/getMessages?chat_id=1")
-          .then((v) => v.json())
-          .then((e) => console.log(e))
-          .catch((err) => console.log(err))
-  }
-  getMessages()
+    fetch("127.0.0.1/getMessages?chat_id=1")
+      .then((v) => v.json())
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((err) => console.log(err));
+  };
+  getMessages();
 
   useEffect(() => {
     setQuote({});
@@ -29,7 +31,7 @@ export default function Messages({ messages = [], sendMessage }) {
   return (
     <>
       <div className="chat" ref={chatRef}>
-        {messages.length === 0 ? <h2>Напишите первым!</h2> : null}
+        {[].length === 0 ? <h2>Напишите первым!</h2> : null}
         <ul>
           {messages.map((message, index) => {
             const isCurrentUser = context.user === message.user;

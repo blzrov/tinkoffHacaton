@@ -2,21 +2,34 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import InputMessage from "./InputMessage";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import { settingsContext } from "../App";
 
-export default function Messages({ messages = [], sendMessage }) {
+export default function Messages({ messages = [], sendMessage, user }) {
   const chatRef = useRef();
   const [quote, setQuote] = useState({});
-  const context = useContext(settingsContext);
 
-  useEffect(() => {
-    setQuote({});
-  }, [context]);
+  const getMessages = () => {
+    fetch("127.0.0.1/getMessages?chat_id=1")
+      .then((v) => v.json())
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((err) => console.log(err));
+  };
+  getMessages();
 
   useEffect(() => {
     if (!chatRef.current) return;
     chatRef.current.scrollTop = chatRef.current.scrollHeight;
   }, [messages, quote]);
+
+  /////////////////////////////////////////////
+
+  async function follow() {
+    //подписка фетч на ожидание в ответ id чата, потом редирект на чат
+    //await
+  }
+
+  function follow2() {}
 
   return (
     <>
@@ -24,7 +37,9 @@ export default function Messages({ messages = [], sendMessage }) {
         {messages.length === 0 ? <h2>Напишите первым!</h2> : null}
         <ul>
           {messages.map((message, index) => {
-            const isCurrentUser = context.user === message.user;
+            const isCurrentUser = user === message.user;
+            console.log(user);
+            console.log(message.user);
             const haveQuote = message.quote?.value && message.quote?.user;
             return (
               <li
