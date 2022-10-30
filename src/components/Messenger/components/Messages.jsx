@@ -9,6 +9,15 @@ export default function Messages({ messages = [], sendMessage }) {
   const [quote, setQuote] = useState({});
   const context = useContext(settingsContext);
 
+  const getMessages = () => {
+      fetch("http://localhost:8000/?chat_id=1")
+          .then((v) => JSON.parse(v))
+          .then((e) => console.log(e))
+          .catch((err) => console.log(err))
+  }
+
+  getMessages()
+
   useEffect(() => {
     setQuote({});
   }, [context]);
