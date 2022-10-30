@@ -7,7 +7,7 @@ export default function Page3({ next, result }) {
             <div className={"form"}>
                 <div className={"add-avatar"}></div>
                 <label className={"form-label"}>Должность</label>
-                <select onChange={(e) => result.current.specialization = e.target.value}
+                <select onChange={(e) => result.current.user_specialization = e.target.value}
                         className={"input"}>
                     <option value={"Программист"}>Программист</option>
                     <option value={"Дизайнер"}>Дизайнер</option>

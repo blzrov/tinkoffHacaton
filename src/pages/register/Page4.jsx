@@ -1,5 +1,6 @@
 export default function Page4({ result }) {
   function postResult() {
+    console.log(result);
     fetch("http://127.0.0.1:8000/getUser/?user_login=Kolya_wolf", {
       method: "post",
       body: result.current,
@@ -20,7 +21,7 @@ export default function Page4({ result }) {
                 <button
                   onClick={(e) => {
                     e.target.disabled = true;
-                    result.current.hobbies.push(e.target.textContent);
+                    result.current.user_hobbies.push(e.target.textContent);
                   }}
                   className={"hobby"}
                   key={index}
